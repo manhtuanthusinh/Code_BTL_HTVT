@@ -4,7 +4,7 @@ import networkx as nx
 
 print("RUNNING FILE:", os.path.abspath(__file__))
 
-with open("./out/iot_graph.gpickle", "rb") as f:
+with open("./out/iot_graph100.gpickle", "rb") as f:
     G = pickle.load(f)
 
 print("Number of nodes:", G.number_of_nodes())
