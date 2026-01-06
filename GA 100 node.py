@@ -13,8 +13,8 @@ import pickle
 GRAPH_PATH = "./out/iot_graph100.gpickle"
 
 
-POP_SIZE = 30
-N_GEN = 30
+POP_SIZE = 30  # Kích thước quần thể (số lượng đường đi tiềm năng được duy trì trong mỗi thế hệ)
+N_GEN = 30  # 
 TOURNAMENT_K = 2
 CROSSOVER_RATE = 0.8
 MUTATION_RATE = 0.6

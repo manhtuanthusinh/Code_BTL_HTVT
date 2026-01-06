@@ -57,6 +57,8 @@ DEFAULT_CONFIG = {
 
 
 class IoTGraphBuilder:
+    # đóng gói logic tạo & xử lý graph
+
     def __init__(self, config: Dict[str, Any] = None):
         self.config = DEFAULT_CONFIG.copy()
         if config:
@@ -74,6 +76,7 @@ class IoTGraphBuilder:
 
     @staticmethod
     def euclidean(a: Tuple[float, float], b: Tuple[float, float]) -> float:
+        """ tính khoảng cách euclidean để xác định node và tính delay, energy"""
         return math.hypot(a[0] - b[0], a[1] - b[1])
 
     def build_graph(self) -> nx.Graph:
@@ -127,6 +130,7 @@ class IoTGraphBuilder:
 
     def compute_composite_cost(self) -> None:
         """Tính cost tổng hợp gán vào thuộc tính 'cost' cho mỗi cạnh.
+
         Cost = w_delay*norm(delay) + w_energy*norm(energy) + w_pdr*(1 - norm(pdr))
         Lưu ý: pdr càng lớn -> cost càng thấp, nên dùng 1 - norm(pdr)
         """
@@ -301,7 +305,7 @@ class IoTGraphBuilder:
 # ----------------------------
 if __name__ == "__main__":
     cfg = {
-        "num_nodes": 100,
+        "num_nodes": 500,  # !important:  number of node 
         "area_size": 120.0,
         "tx_range": 30.0,
         "seed": 123,

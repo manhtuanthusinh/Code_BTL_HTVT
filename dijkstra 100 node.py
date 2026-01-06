@@ -29,7 +29,7 @@ SAVE_FIG_PATH = "./out/dijkstra_path100.png"
 
 
 # =========================
-# LOAD GRAPH
+# LOAD GRAPH Iot 100 node tạo từ file model graph_100node
 # =========================
 def load_graph(path: str) -> nx.Graph:
     if not os.path.exists(path):
@@ -65,6 +65,7 @@ def compute_path_metrics(
     total_energy = 0.0
     success_prob = 1.0  # PDR = product of link PDRs
 
+    # evaluate function, tính các chỉ số cho các thuật toán sử dụng
     for i in range(len(path) - 1):
         u, v = path[i], path[i + 1]
         edge = G[u][v]
